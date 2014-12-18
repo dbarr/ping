@@ -1,0 +1,11 @@
+{
+    "name": "dbarr/ping",
+    "description": "Ping",
+    "authors": [
+        {
+            "name": "Dave Barr",
+            "email": "github@barr.com.au"
+        }
+    ],
+    "require": {}
+}
