@@ -82,7 +82,12 @@ class Ping {
 
         $ret = ['host' => $host];
 
-        if ($returncode) {
+        /*
+         * 0: response received
+         * 2: no responses received
+         * any other value: error occurred
+        */
+        if ($returncode > 0 && $returncode != 2) {
             $ret['error'] = implode("\n", $out);
             return $ret;
         }
