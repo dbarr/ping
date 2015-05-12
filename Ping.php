@@ -7,7 +7,7 @@ use \InvalidArgumentException;
 use \Closure;
 
 class Ping {
-    const SUPPORTED_OPERATING_SYSTEMS = [
+    private static $SUPPORTED_OPERATING_SYSTEMS = [
         'freebsd',
     ];
 
@@ -24,7 +24,7 @@ class Ping {
     ];
 
     static public final function getInstance($os) {
-        if (array_search($os, self::SUPPORTED_OPERATING_SYSTEMS) === false) {
+        if (array_search($os, self::getSupportedOperatingSystems()) === false) {
             throw new BadMethodCallException('Unsupported operating system');
         }
 
@@ -34,7 +34,7 @@ class Ping {
     }
 
     static public final function getSupportedOperatingSystems() {
-        return self::SUPPORTED_OPERATING_SYSTEMS;
+        return self::$SUPPORTED_OPERATING_SYSTEMS;
     }
 
     public function clearDefaultOptions() {
